@@ -77,3 +77,7 @@ class employees1 {
     }
     
 }
+class myclass2 extends myemployess{
+    myemployess mitul = new myemployess();
+   // mitul.setname("i am mitul")
+}
