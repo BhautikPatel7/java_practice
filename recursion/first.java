@@ -12,7 +12,7 @@ public class first {
         // fibonaci(5);
         // System.out.println(arraysortornot(arr, 0)); ;
         // System.out.println(firstoccurenceofele(arr, 5,0));
-        System.out.println(lastoccure(arr, 5, 0));
+       // System.out.println(lastoccure(arr, 5, 0));
     }
 
     public static void printdecresing(int n) {
