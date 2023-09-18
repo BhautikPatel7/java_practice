@@ -24,7 +24,7 @@ public class first {
             System.out.println();
         }
 
-           serach(arr, 5);
+           serach(arr, 9);
     }
 
     public static boolean serach(int arr[][], int key){
