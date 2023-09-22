@@ -1,3 +1,4 @@
+package normalprogams;
 import java.util.Scanner;
 
 
