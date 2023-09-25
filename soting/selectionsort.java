@@ -1,5 +1,5 @@
 package soting;
-
+// Time complexity O(n^2) for selection and insertion
 public class selectionsort {
     public static void main(String[] args) {
         int arr[] = {5,4,1,3,2};

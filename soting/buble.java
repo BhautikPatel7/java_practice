@@ -1,4 +1,5 @@
 package soting;
+// Time complexity O(n^2)
 
 public class buble {
     public static void main(String[] args) {
