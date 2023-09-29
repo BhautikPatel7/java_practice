@@ -1,6 +1,6 @@
 package Srting;
 
-import recursion.first;
+import recursion.allfunction;
 
 public class sortespath  {
     public static void main(String[] args) {
