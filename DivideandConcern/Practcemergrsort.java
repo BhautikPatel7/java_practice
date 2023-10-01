@@ -1,4 +1,4 @@
-package DivideandConcern;
+
 
 public class Practcemergrsort {
     public static void main(String[] args) {

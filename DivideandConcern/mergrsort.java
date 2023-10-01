@@ -1,9 +1,9 @@
-package DivideandConcern;
+
 
 public class mergrsort {
     // Time COmplexity O(nlogn) And Space Complexity O(n)
     public static void main(String[] args) {
-        int arr[] = {6,3,9,5,2,8};
+         int arr[] = {6,3,9,5,2,8};
         mergrsort(arr, 0, arr.length - 1);
         printarr(arr);
     }
