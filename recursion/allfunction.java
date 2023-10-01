@@ -6,29 +6,29 @@ public class allfunction {
     public static void main(String[] args) {
         int n = 20;
         int arr[] = { 1, 2, 3, 4, 5, 6, 7, 8, 5, 9 };
-        // printdecresing(n);
-        // printincresing(n);
-        // System.out.println(printfact(5));
-        // System.out.println(sumofnum(5));
-        // System.out.println(fibonaci(5));
-        // fibonaci(5);
-        // System.out.println(arraysortornot(arr, 0)); ;
-        // System.out.println(firstoccurenceofele(arr, 5,0));
-        // System.out.println(lastoccure(arr, 5, 0));
-        // System.out.println(powcal(10, 2));
-        // System.out.println(optimisedpowcal(2, 10));
-        // System.out.println(tilingpb(5));
-        // String str = "appnanancolllae";
-        // removedupstr(str, 0, new StringBuilder(""), new boolean[26]);
-        // System.out.println(friendspairpb(3));
-        // binarystringpb("", 3, 0);
-        // String str = "";
-        // printstr(str);
-        // coocurence(arr, 5, 0);
-        // stringenglish(2019);
-        // System.out.println(lenthofstr("Hello")); //lenthofstr("Hello");
-        // System.out.println(countsubstr("abca", 0, n-1, n));
-        towerofhonai(2, "S", "H", "D");
+        printdecresing(n);
+        printincresing(n);
+        System.out.println(printfact(5));
+        System.out.println(sumofnum(5));
+        System.out.println(fibonaci(5));
+        fibonaci(5);
+        System.out.println(arraysortornot(arr, 0)); ;
+        System.out.println(firstoccurenceofele(arr, 5,0));
+        System.out.println(lastoccure(arr, 5, 0));
+        System.out.println(powcal(10, 2));
+        System.out.println(optimisedpowcal(2, 10));
+        System.out.println(tilingpb(5));
+        String str = "appnanancolllae";
+        removedupstr(str, 0, new StringBuilder(""), new boolean[26]);
+        System.out.println(friendspairpb(3));
+        binarystringpb("", 3, 0);
+        //String str = "";
+        printstr(str);
+        coocurence(arr, 5, 0);
+        stringenglish(2019);
+        System.out.println(lenthofstr("Hello")); //lenthofstr("Hello");
+        //System.out.println(countsubstr("abca", 0, n-1, n));
+       towerofhonai(2, "S", "H", "D");
 
     }
 
