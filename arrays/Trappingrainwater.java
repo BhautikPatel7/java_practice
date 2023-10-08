@@ -3,7 +3,6 @@ public class Trappingrainwater {
         int height[] = { 4, 2, 0, 6, 3, 2, 5 };
         System.out.println(Tappedrainwater(height));
     }
-
     public static int Tappedrainwater(int height[]) {
         int n = height.length;
         // calculate Left Max Boundry
