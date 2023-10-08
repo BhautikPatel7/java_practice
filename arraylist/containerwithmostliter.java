@@ -14,7 +14,8 @@ public class containerwithmostliter {
        height.add(8);
        height.add(3);
        height.add(7);
-    System.out.println(storewater(height)); 
+    // System.out.println(storewater(height)); 
+     System.out.println(storewateroptimise(height)); 
       
 
     }
@@ -33,4 +34,29 @@ public class containerwithmostliter {
         return maxwater;
 
     }
+
+     public static int storewateroptimise(ArrayList<Integer> height){
+
+        int max = 0;
+        int left=0;
+        int right = height.size() - 1;
+        while (left < right) {
+            int ht = Math.min(height.get(left), height.get(right));
+            int wt = right - left;
+            int currentwater = ht * wt;
+            max = Math.max(max, currentwater);
+
+            // Update The Pointers
+            if (height.get(left) < height.get(right)) {
+                left++;
+            }
+            else{
+                right--;
+            }
+
+            
+            
+        }
+        return max;
+     }
 }
