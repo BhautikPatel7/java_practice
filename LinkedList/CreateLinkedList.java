@@ -18,6 +18,7 @@ public class CreateLinkedList {
 
     public static void main(String[] args) {
         CreateLinkedList ll = new CreateLinkedList();
+        // o(n)
         // ll.head = new Node(1);
         // ll.head.next = new Node(2);
 
@@ -27,8 +28,14 @@ public class CreateLinkedList {
         ll.addlast(5);
         ll.addinmiddle(2, 3);
         // System.out.println("The size Of Linked List is "+ ll.size);
-        ll.removefirst();
-        ll.removelast();
+        // ll.removefirst();
+        // ll.removelast();
+        // ll.printlinklist();
+        // ll.revrsell();
+         ll.printlinklist();
+        // System.out.println(ll.search(3));
+        // System.out.println(ll.searchrecursion(3));
+        ll.removefromlast(3);
         ll.printlinklist();
 
     }
@@ -99,7 +106,7 @@ public class CreateLinkedList {
         } else if (size == 1) {
             int val = head.data;
             head = tail = null;
-            size=0;
+            size = 0;
             return val;
         }
         int val = head.data;
@@ -108,29 +115,102 @@ public class CreateLinkedList {
         return val;
     }
 
-    public int removelast(){
-        if (size==0) {
+    public int removelast() {
+        if (size == 0) {
             System.out.println("Linked List is Already Empty");
             return Integer.MAX_VALUE;
-        }else if (size==1) {
+        } else if (size == 1) {
             int val = head.data;
-            head=tail=null;
-            size=0;
+            head = tail = null;
+            size = 0;
             return val;
         }
-       
-        //Previous = size - 2;
+
+        // Previous = size - 2;
         Node previous = head;
-        for (int i = 0; i < size-2; i++) {
+        for (int i = 0; i < size - 2; i++) {
             previous = previous.next;
 
         }
-         int val = previous.next.data;
+        int val = previous.next.data;
         previous.next = null;
         tail = previous;
         size--;
         return val;
 
+    }
+
+    public int search(int key) {
+        Node temp = head;
+        int index = 0;
+        while (temp != null) {
+            if (temp.data == key) {
+                return index;
+            } else {
+                temp = temp.next;
+                index++;
+
+            }
+        }
+        return -1;
+    }
+
+    public int searchrecursion(int key) {
+        return helper(head, key);
+
+    }
+
+    public int helper(Node head, int key) {
+        if (head == null) {
+            return -1;
+        }
+        if (head.data == key) {
+            return 0;
+        }
+        int idx = helper(head.next, key);
+        if (idx == -1) {
+            return -1;
+        }
+
+        return idx + 1;
+    }
+
+    public void revrsell() {
+        // 3 Variables and 4 Step Remmber o(n)
+        Node cureent = tail = head;
+        Node next;
+        Node previous = null;
+
+        while (cureent != null) {
+            next = cureent.next;
+            cureent.next = previous;
+            previous = cureent;
+            cureent = next;
+        }
+        head = previous;
+    }
+    public void removefromlast(int n){
+        //N Is Node Index Where I Need To remove From Last
+        int size = 0;
+        Node temp = head;
+        while (temp != null) {
+            temp = temp.next;
+            size++;
+        }
+        if (n == size) {
+            head = head.next;
+            return;
+        }
+        //size - n 
+         int i = 1;
+         int tofind = size - n;
+         Node privious = head;
+         while (i < tofind) {
+            privious = privious.next;
+            i++;
+         }
+         privious.next = privious.next.next;
+         return;
     }
 
 }
