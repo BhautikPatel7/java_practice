@@ -24,19 +24,21 @@ public class CreateLinkedList {
 
         ll.addfirst(2);
         ll.addfirst(1);
-        ll.addlast(4);
-        ll.addlast(5);
+        ll.addlast(2);
+        ll.addlast(1);
         ll.addinmiddle(2, 3);
         // System.out.println("The size Of Linked List is "+ ll.size);
         // ll.removefirst();
         // ll.removelast();
         // ll.printlinklist();
+        //System.out.println(ll.toString());
         // ll.revrsell();
-         ll.printlinklist();
-        // System.out.println(ll.search(3));
-        // System.out.println(ll.searchrecursion(3));
-        ll.removefromlast(3);
-        ll.printlinklist();
+        // ll.printlinklist();
+        // // System.out.println(ll.search(3));
+        // // System.out.println(ll.searchrecursion(3));
+        // ll.removefromlast(3);
+        // ll.printlinklist();
+        System.out.println(ll.chekpalindrome());
 
     }
 
@@ -189,8 +191,9 @@ public class CreateLinkedList {
         }
         head = previous;
     }
-    public void removefromlast(int n){
-        //N Is Node Index Where I Need To remove From Last
+
+    public void removefromlast(int n) {
+        // N Is Node Index Where I Need To remove From Last
         int size = 0;
         Node temp = head;
         while (temp != null) {
@@ -201,16 +204,63 @@ public class CreateLinkedList {
             head = head.next;
             return;
         }
-        //size - n 
-         int i = 1;
-         int tofind = size - n;
-         Node privious = head;
-         while (i < tofind) {
+        // size - n
+        int i = 1;
+        int tofind = size - n;
+        Node privious = head;
+        while (i < tofind) {
             privious = privious.next;
             i++;
-         }
-         privious.next = privious.next.next;
-         return;
+        }
+        privious.next = privious.next.next;
+        return;
     }
+
+    public boolean chekpalindrome(){
+        if (head == null  || head.next == null) {
+            return true;
+        }
+        //find mid
+        Node mid =  findmiddle(head);
+        //Revrse Second Half
+        Node prev = null;
+        Node curr = mid;
+        Node next ;
+        while (curr != null) {
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+
+        }
+        Node right = prev;
+        Node left =  head;
+
+
+        //Chek The left Half And Right Half
+        while (right != null) {
+            if (left.data != right.data) {
+                return false;
+            }
+            left = left.next;
+            right = right.next;
+        }
+        return true;
+        
+ }
+       
+
+    
+    public Node findmiddle(Node head)
+    {
+             Node slow = head;
+         Node fast = head;
+         while (fast != null  && fast.next != null) {
+             slow = slow.next;
+             fast = fast.next.next;
+         }
+        return slow;
+    }
+    
 
 }
