@@ -1,6 +1,6 @@
 import java.util.LinkedList;
 
-public class CreateLinkedList {
+public class AllFunction {
 
     public static class Node {
         int data;
@@ -17,29 +17,35 @@ public class CreateLinkedList {
     public static int size = 0;
 
     public static void main(String[] args) {
-        CreateLinkedList ll = new CreateLinkedList();
+        AllFunction ll = new AllFunction();
         // o(n)
         // ll.head = new Node(1);
         // ll.head.next = new Node(2);
-
-        ll.addfirst(2);
-        ll.addfirst(1);
-        ll.addlast(2);
-        ll.addlast(1);
-        ll.addinmiddle(2, 3);
+        // ll.addfirst(2);
+        // ll.addfirst(1);
+        // ll.addlast(2);
+        // ll.addlast(1);
+        // ll.addinmiddle(2, 3);
         // System.out.println("The size Of Linked List is "+ ll.size);
         // ll.removefirst();
         // ll.removelast();
         // ll.printlinklist();
-        //System.out.println(ll.toString());
+        // System.out.println(ll.toString());
         // ll.revrsell();
         // ll.printlinklist();
         // // System.out.println(ll.search(3));
         // // System.out.println(ll.searchrecursion(3));
         // ll.removefromlast(3);
         // ll.printlinklist();
-        System.out.println(ll.chekpalindrome());
-
+        // System.out.println(ll.chekpalindrome());
+        // head = new Node(1);
+        // Node temp = new Node(2);
+        // head.next = temp;
+        // head.next.next = new Node(3);
+        // head.next.next.next = temp;
+        // System.out.println(detectlooporcycle());
+        // removecycle();
+        // System.out.println(detectlooporcycle());
     }
 
     public void addfirst(int data) {
@@ -216,16 +222,16 @@ public class CreateLinkedList {
         return;
     }
 
-    public boolean chekpalindrome(){
-        if (head == null  || head.next == null) {
+    public boolean chekpalindrome() {
+        if (head == null || head.next == null) {
             return true;
         }
-        //find mid
-        Node mid =  findmiddle(head);
-        //Revrse Second Half
+        // find mid
+        Node mid = findmiddle(head);
+        // Revrse Second Half
         Node prev = null;
         Node curr = mid;
-        Node next ;
+        Node next;
         while (curr != null) {
             next = curr.next;
             curr.next = prev;
@@ -234,10 +240,9 @@ public class CreateLinkedList {
 
         }
         Node right = prev;
-        Node left =  head;
+        Node left = head;
 
-
-        //Chek The left Half And Right Half
+        // Chek The left Half And Right Half
         while (right != null) {
             if (left.data != right.data) {
                 return false;
@@ -246,21 +251,63 @@ public class CreateLinkedList {
             right = right.next;
         }
         return true;
-        
- }
-       
 
-    
-    public Node findmiddle(Node head)
-    {
-             Node slow = head;
-         Node fast = head;
-         while (fast != null  && fast.next != null) {
-             slow = slow.next;
-             fast = fast.next.next;
-         }
+    }
+
+    public Node findmiddle(Node head) {
+        Node slow = head;
+        Node fast = head;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
         return slow;
     }
-    
+
+    public static boolean detectlooporcycle() {
+        //Floyed's Cycle Finding Algo
+        Node slow = head;
+        Node fast = head;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+            if (slow == fast) {
+                System.out.println("Loop / Cycle Exist In Linked List");
+                return true;
+
+            }
+
+        }
+        return false;
+    }
+
+    public static void removecycle(){
+        Node slow = head;
+        Node fast = head;
+        boolean Cycle = false;
+    while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+            if (slow==fast) {
+                Cycle = true;
+                break;
+            }
+        }
+
+        if (Cycle == false) {
+            return;
+        }
+
+        slow =head;
+        Node prei = null;
+
+        while (slow != fast) {
+            prei = fast;
+            slow = slow.next;
+            fast = fast.next;
+        }
+        prei.next = null;
+
+    }
 
 }
