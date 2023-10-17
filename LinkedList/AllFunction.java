@@ -16,38 +16,6 @@ public class AllFunction {
     public static Node tail;
     public static int size = 0;
 
-    public static void main(String[] args) {
-        AllFunction ll = new AllFunction();
-        // o(n)
-        // ll.head = new Node(1);
-        // ll.head.next = new Node(2);
-        // ll.addfirst(2);
-        // ll.addfirst(1);
-        // ll.addlast(2);
-        // ll.addlast(1);
-        // ll.addinmiddle(2, 3);
-        // System.out.println("The size Of Linked List is "+ ll.size);
-        // ll.removefirst();
-        // ll.removelast();
-        // ll.printlinklist();
-        // System.out.println(ll.toString());
-        // ll.revrsell();
-        // ll.printlinklist();
-        // // System.out.println(ll.search(3));
-        // // System.out.println(ll.searchrecursion(3));
-        // ll.removefromlast(3);
-        // ll.printlinklist();
-        // System.out.println(ll.chekpalindrome());
-        // head = new Node(1);
-        // Node temp = new Node(2);
-        // head.next = temp;
-        // head.next.next = new Node(3);
-        // head.next.next.next = temp;
-        // System.out.println(detectlooporcycle());
-        // removecycle();
-        // System.out.println(detectlooporcycle());
-    }
-
     public void addfirst(int data) {
         Node newNode = new Node(data);
         size++;
@@ -265,7 +233,7 @@ public class AllFunction {
     }
 
     public static boolean detectlooporcycle() {
-        //Floyed's Cycle Finding Algo
+        // Floyed's Cycle Finding Algo
         Node slow = head;
         Node fast = head;
         while (fast != null && fast.next != null) {
@@ -281,14 +249,14 @@ public class AllFunction {
         return false;
     }
 
-    public static void removecycle(){
+    public static void removecycle() {
         Node slow = head;
         Node fast = head;
         boolean Cycle = false;
-    while (fast != null && fast.next != null) {
+        while (fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
-            if (slow==fast) {
+            if (slow == fast) {
                 Cycle = true;
                 break;
             }
@@ -298,7 +266,7 @@ public class AllFunction {
             return;
         }
 
-        slow =head;
+        slow = head;
         Node prei = null;
 
         while (slow != fast) {
@@ -310,4 +278,102 @@ public class AllFunction {
 
     }
 
+    private Node getMid(Node head) {
+        Node slow = head;
+        Node fast = head;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow;
+
+    }
+
+    private Node merge(Node head1, Node head2) {
+        Node mergedll = new Node(-1);
+        Node temp = mergedll;
+        while (head1 != null && head2 != null) {
+            if (head1.data <=  head2.data) {
+                temp.next = head1;
+                head1 = head1.next;
+                temp = temp.next;
+            }
+             else {
+                temp.next = head2;
+                head2 = head2.next;
+                temp = temp.next;
+            }
+
+        }
+        while (head1 != null) {
+            temp.next = head1;
+            head1 = head1.next;
+            temp = temp.next;
+        }
+        while (head2 != null) {
+            temp.next = head2;
+            head2 = head2.next;
+            temp = temp.next;
+        }
+        return mergedll.next;
+    }
+
+    public Node mergesort(Node head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+        // findmid
+        Node mid = getMid(head);
+        // Left & Right Ms
+        Node righthead = mid.next;
+        mid.next = null;
+        Node newleft = mergesort(head);
+        Node newright = mergesort(righthead);
+
+        // merger
+
+        return merge(newleft, newright);
+
+    }
+
+    public static void main(String[] args) {
+        AllFunction ll = new AllFunction();
+        // o(n)
+        // ll.head = new Node(1);
+        // ll.head.next = new Node(2);
+        // ll.addfirst(2);
+        // ll.addfirst(1);
+        // ll.addlast(2);
+        // ll.addlast(1);
+        // ll.addinmiddle(2, 3);
+        // System.out.println("The size Of Linked List is "+ ll.size);
+        // ll.removefirst();
+        // ll.removelast();
+        // ll.printlinklist();
+        // System.out.println(ll.toString());
+        // ll.revrsell();
+        // ll.printlinklist();
+        // // System.out.println(ll.search(3));
+        // // System.out.println(ll.searchrecursion(3));
+        // ll.removefromlast(3);
+        // ll.printlinklist();
+        // System.out.println(ll.chekpalindrome());
+        // head = new Node(1);
+        // Node temp = new Node(2);
+        // head.next = temp;
+        // head.next.next = new Node(3);
+        // head.next.next.next = temp;
+        // System.out.println(detectlooporcycle());
+        // removecycle();
+        // System.out.println(detectlooporcycle());
+        // ll.addfirst(1);
+        // ll.addfirst(2);
+        // ll.addfirst(3);
+        // ll.addfirst(4);
+        // ll.addfirst(5);
+        // ll.printlinklist();
+        // ll.head = ll.mergesort(ll.head);
+        // ll.printlinklist();
+
+    }
 }
