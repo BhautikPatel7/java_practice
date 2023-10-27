@@ -2,10 +2,10 @@ package Medkart;
 
 public class forh {
     public static void main(String[] args) {
-        
+        System.out.println("The Sql Problems");
     }
 
-    /*/*********************************************************************************************
+/**********************************************************************************************
  *                            CODERBYTE SQL MEMBER COUNT CHALLENGE                           *
  *                                                                                           *
  * Your table: maintable_L99ON                                                               *

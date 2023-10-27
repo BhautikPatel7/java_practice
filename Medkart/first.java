@@ -16,7 +16,7 @@ public class first {
     //    String str2 = new String(charArray);
     // System.out.println("String from character array: " + str1);
     // System.out.println("String from character array: " + str2);
-    System.out.println(revrserecorsion(str));
+    System.out.println(revrse(str));
 
 
     }
@@ -50,5 +50,17 @@ public class first {
         String revresedrest = revrserecorsion(reman);
         String revresed = revresedrest + firstchae;
         return revresed;
+      }
+
+      public static String revrse(String str){
+        if (str.isEmpty() || str.length() == 1) {
+          return str;
+        }
+
+        char ch = str.charAt(0);
+        String sub = str.substring(1);
+        String revesub = revrse(sub);
+        String rev = revesub + ch;
+        return rev;
       }
 }
